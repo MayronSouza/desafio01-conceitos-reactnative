@@ -30,18 +30,14 @@ export function Home() {
 
   function handleMarkTaskAsDone(id: number) {
     //TODO - mark task as done if exists
-    setTasks(tasks.filter(task => {
-      if (task.id === id) {
-        task.done = task.done === true ? false : true;
-      }
-    }));
+    const task = tasks.filter(task => task.id === id)[0];
+    task.done = !task.done;
+    setTasks([...new Set([task, ...tasks])]);
   }
 
   function handleRemoveTask(id: number) {
     //TODO - remove task from state
-    const newTasksArray = tasks.filter(task => task.id !== id);
-
-    setTasks(newTasksArray);
+    setTasks(oldState => oldState.filter(task => task.id !== id));
   }
 
   return (
