@@ -25,7 +25,7 @@ export function Home() {
       done: false,
     }
 
-    setTasks([...tasks, newTask]);
+    setTasks(oldState => [...oldState, newTask]);
   }
 
   function handleMarkTaskAsDone(id: number) {
