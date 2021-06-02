@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { StyleSheet, Switch } from 'react-native';
 
 import { Header } from '../components/Header';
 import { MyTasksList } from '../components/MyTasksList';
@@ -12,6 +13,7 @@ interface Task {
 
 export function Home() {
   const [tasks, setTasks] = useState<Task[]>([]);
+
 
   function handleAddTask(newTaskTitle: string) {
     //TODO - add new task if it's not empty
